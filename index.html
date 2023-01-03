@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<!-- ================ Title ================ -->
+	<title>LazyLand - Главная</title>
+
+	<!-- ================ Logotype ================ -->
+	<link rel="apple-touch-icon" href="templates/default/assets/images/logo.png">
+	<link rel="shortcut icon" href="templates/default/assets/images/logo.png" type="image/x-icon">
+
+	<!-- ================ Styles ================ -->
+	<link rel="stylesheet" href="templates/default/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="templates/default/assets/css/stylemaincss.css" />
+	<link rel="stylesheet" href="templates/default/assets/css/fonts.css" />
+
+	<!-- ================ Scripts ================ -->
+	<script src="templates/default/assets/js/jquery-3.6.0.min.js"></script>
+	<script src="templates/default/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="templates/default/assets/js/cookie.js"></script>
+
+	<!-- ================ Meta tags ================ -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://lazyland.games">
+	<meta property="og:title" content="LazyLand">
+	<meta property="og:description" content="desc">
+	<meta property="og:image" content="/templates/default/assets/images/background-main.svg">
+	<script>
+var $ipserver = "mc.lazyland.games";
+
+$(function(){
+    $('.paralax').on('mousemove', (e) => {
+        const x = e.pageX / $(window).width();
+        const y = e.pageY / $(window).height();
+        $('#paralax-cube-1').css (
+            'transform',
+            'translate(' + x * 70 + 'px, ' + y * 45 + 'px)'
+        )
+        $('#paralax-cube-2').css (
+            'transform',
+            'translate(' + x * 70 + 'px, ' + y * 45 + 'px)'
+        )
+        $('#paralax-icon').css (
+            'transform',
+            'translate(' + x * 35 + 'px, ' + y * 25 + 'px)'
+        )
+    });
+
+	$('#copy-ip-1,#copy-ip-2').click(function() {
+	    var $temp = $("<input>");
+	    $("body").append($temp);
+	    $temp.val($ipserver).select();
+	    document.execCommand('copy');
+	    $temp.remove();
+		if ($(this).text() == 'Наш IP') {
+			$(this).text('Готово');
+			setTimeout(function() {
+				$('#copy-ip-1').text('Наш IP');
+			}, 1500);
+		}
+		if ($(this).text() == 'Скопировать IP-адрес') {
+			$(this).text('IP-адрес скопирован');
+			setTimeout(function() {
+				$('#copy-ip-2').text('Скопировать IP-адрес');
+			}, 1500);
+		}
+	});
+});
+	</script>
+
+</head>
+<body class="body">
+	
+	<div id='dle-content'></div>
+
+	
+		<!-- ================ Content ================ -->
+<div class="wrapper">
+	<main class="main" id="main" style="background-image: url(templates/default/assets/images/background-main.svg);">
+		<!-- ================ Header ================ -->
+		<header class="header navbar navbar-expand-xl z-index-1" id="header">
+			<div class="container-xl">
+				<div class="header__container w-100">
+					<a class="header__logo logotype" href="/">
+						<img src="templates/default/assets/images/logo.png" alt="" class="logotype__img">
+					</a>
+					<a class="navbar-toggler header__burger" data-bs-toggle="collapse" data-bs-target="#header-nav" role="button" aria-controls="header-nav"><svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1H13" stroke="white" stroke-width="1.6"/><path d="M0 5.5H13" stroke="white" stroke-width="1.6"/><path d="M0 10H13" stroke="white" stroke-width="1.6"/></svg></a>
+					<div class="header__collapse collapse navbar-collapse" id="header-nav">
+						<nav class="nav me-auto">
+							<a href="/" class="nav__link">
+								<span class="icon__home nav__icon"></span>
+								<p class="nav__text">Главная</p>
+							</a>
+							
+							<a href="https://docs.google.com/document/d/1-iOmTCcSNUyfM19MmTHZ7KQzRhz-vY4O-wQqXIw7M9I/view#heading=h.1fob9te" class="nav__link">
+								<span class="icon__book nav__icon"></span>
+								<p class="nav__text">Правила</p>
+							</a>
+							
+							<a href="https://map.lazyland.games" target="_blank" class="nav__link">
+								<span class="icon__card nav__icon"></span>
+								<p class="nav__text">Карта</p>
+							</a>
+							
+							<a href="#" class="nav__link">
+								<span class="icon__shop nav__icon"></span>
+								<p class="nav__text">Магазин</p>
+							</a>
+						</nav>
+
+						<div class="header__right">
+							<div class="header__online">
+								<img src="templates/default/assets/images/online-png.png" alt="" class="header__online-img">
+								<p class="header__online-text">Играют сейчас: 0</p>
+							</div>
+
+							<button class="btn-transparent icon__copy" id="copy-ip-1">Наш IP</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container-xl main__container z-index-1">
+			<div class="block paralax block_slide bg-full w-100" style="min-height: 315px;background-image: url(templates/default/assets/images/main-slide.png);">
+				<div class="block__content">
+					<h2 class="block__title">LazyLand - Технологичный ванильный сервер с нотками RP.</h2>
+					<p class="block__desc">Выживайте, стройте город, находите друзей и отыгрывайте RP. Без приватов, привилегий и лишних плагинов.</p>
+				</div>
+				<a href="#startgame" class="btn-light mt-auto">Начать игру</a>
+				<img src="templates/default/assets/images/paralax/line.svg" style="height: 100%;position: absolute;top: 0;right: 0;" alt="">
+				<img src="templates/default/assets/images/paralax/cube-2.png" class="paralax-cube transition-none opacity-100" id="paralax-cube-2" style="top: 0;right: 224px;" alt="">
+				<img src="templates/default/assets/images/paralax/cube-1.png" class="paralax-cube transition-none opacity-100" id="paralax-cube-1" style="bottom: 23px;right: 410px;" alt="">
+				<img src="templates/default/assets/images/paralax/main-star.png" class="paralax-icon transition-none" id="paralax-icon" style="top: -49px;right: -220px;" alt="">
+			</div>
+		</div>
+
+		<div class="container-xl main__container main__container-other z-index-1">
+			<a href="#" class="block block_big bg-full w-50 small-padding" style="min-height: 313px;">
+				<div class="block__content">
+					<h2 class="block__title">Магазин</h2>
+				</div>
+				<img src="templates/default/assets/images/paralax/shop-command.png" class="paralax-cube" style="top: -56px;right: 237px;transform: rotate(60deg);width: 166px;" alt="">
+				<img src="templates/default/assets/images/paralax/cube-1.png" class="paralax-cube" style="bottom: -64px;left: -31px;width: 148px;" alt="">
+				<img src="templates/default/assets/images/paralax/shop-donate.png" class="paralax-icon" style="top: 27px;right: 18px;" alt="">
+			</a>
+
+			<div class="main__container-column w-50">
+				<a href="youtube.com" class="block bg-full w-100 small-padding" style="min-height: 147px;">
+					<div class="block__content">
+						<h2 class="block__title small">Наш канал</h2>
+					</div>
+					<img src="templates/default/assets/images/paralax/cube-2.png" class="paralax-cube" style="width: 51px;top: -13px;left: 269px;" alt="">
+					<img src="templates/default/assets/images/paralax/shop-donate.png" class="paralax-cube" style="width: 125px;bottom: -58px;left: -58px;" alt="">
+					<img src="templates/default/assets/images/paralax/shop-command.png" class="paralax-icon" style="top: -111px;right: -154px;" alt="">
+				</a>
+
+				<div class="main__container w-100">
+					<a href="https://discord.com/invite/xrGna3M6s9" target="_blank" class="block block_small bg-full w-100 small-padding" style="min-height: 147px;">
+						<div class="block__content">
+							<h2 class="block__title small">Игровая<br>поддержка</h2>
+						</div>
+						<img src="templates/default/assets/images/paralax/cube-2.png" class="paralax-cube" style="width: 39px;top: 1px;right: 52px;" alt="">
+						<img src="templates/default/assets/images/paralax/cube-1.png" class="paralax-cube" style="width: 39px;bottom: 0;left: -9px;" alt="">
+						<img src="templates/default/assets/images/paralax/support.png" class="paralax-icon paralax-icon_small" style="bottom: -21px;right: -25px;" alt="">
+					</a>
+					
+					<a data-bs-toggle="modal" href="#social" role="button" class="block block_small bg-full w-100 small-padding" style="min-height: 147px;">
+						<div class="block__content">
+							<h2 class="block__title small">Социальные<br>сети</h2>
+						</div>
+						<img src="templates/default/assets/images/paralax/cube-2.png" class="paralax-cube" style="top: -21px;right: 110px;" alt="">
+						<img src="templates/default/assets/images/paralax/cube-1.png" class="paralax-cube" style="bottom: -28px;left: -10px;" alt="">
+						<img src="templates/default/assets/images/paralax/social.png" class="paralax-icon paralax-icon_small" style="top: 18px;right: 13px;" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- ================ Content ================ -->
+	<div class="container-xl">
+		<div class="sections">
+			<section class="section">
+				<h1 class="section__title">Наши преимущества</h1>
+				<div class="section__content section__content-column">
+					<div class="flex-2 w-100">
+						<div class="block advantages" style="min-height: 287px;">
+							<div class="block__content">
+								<h2 class="block__title">Реальная карта Земли</h2>
+								<p class="block__desc">Найдите своё место в этом мире на реальной карте нашей планеты!</p>
+							</div>
+							<a href="https://map.lazyland.games" target="_blank" class="btn-dark mt-auto icon__card-big">Открыть карту</a>
+							<img src="templates/default/assets/images/advantages/land-bg.svg" class="advantages__bg" style="position: absolute;bottom: -6px;left: -16px;" alt="">
+							<img src="templates/default/assets/images/advantages/land.svg" class="block__scale" style="position: absolute;bottom: -62px;right: -26px;" alt="">
+						</div>
+						
+						<div class="block advantages" style="min-height: 287px;">
+							<div class="block__content">
+								<h2 class="block__title">Частые ивенты</h2>
+								<p class="block__desc">Вы не соскучитесь!</p>
+							</div>
+							<img src="templates/default/assets/images/advantages/systemwar-bg.svg" class="advantages__bg" style="position: absolute;bottom: -24px;left: -24px;" alt="">
+							<img src="templates/default/assets/images/advantages/systemwar-art.svg" class="block__scale" style="position: absolute;bottom: -22px;right: -32px;" alt="">
+						</div>
+					</div>
+					<div class="flex-2 w-100">
+						<div class="block advantages small" style="min-height: 287px;flex: 0 1 40.5%;">
+							<div class="block__content">
+								<h2 class="block__title">Мощный сервер</h2>
+								<p class="block__desc">Вас ограничивают только ваше время и фантазия!</p>
+							</div>
+							<img src="templates/default/assets/images/advantages/pvp-bg.svg" class="advantages__bg" style="position: absolute;bottom: -9px;left: -24px;" alt="">
+							<img src="templates/default/assets/images/advantages/pvp-swords.svg" class="block__scale" style="position: absolute;bottom: -26px;right: -50px;" alt="">
+						</div>
+						
+						<div class="block advantages big" style="min-height: 287px;flex: 0 1 56.5%;">
+							<div class="block__content">
+								<h2 class="block__title">Большой онлайн</h2>
+								<p class="block__desc">Объединяйтесь с другими игроками, стройте города, проводите ивенты и тд!</p>
+							</div>
+							<img src="templates/default/assets/images/advantages/mechanics-bg.svg" class="advantages__bg" style="position: absolute;bottom: -15px;left: -13px;" alt="">
+							<img src="templates/default/assets/images/advantages/mechanics-island.svg" class="block__scale" style="position: absolute;bottom: -101px;right: -49px;" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="section" id="startgame">
+				<h1 class="section__title">Как играть?</h1>
+				<div class="section__content">
+					<div class="flex-4 w-100">
+						<div class="block startgame">
+							<h1 class="startgame__step">#1</h1>
+							<img src="templates/default/assets/images/startgame/1.png" alt="" class="startgame__img">
+							<p class="startgame__text">Зайдите в дискорд. Там будут новости, чат, и это ОБЯЗАТЕЛЬНЫЙ пункт! <a href="https://discord.com/invite/xrGna3M6s9">Войти</a>.</p>
+						</div>
+						
+						<div class="block startgame">
+							<h1 class="startgame__step">#2</h1>
+							<img src="templates/default/assets/images/startgame/2.png" alt="" class="startgame__img">
+							<p class="startgame__text">Подайте заявку, что бы вас добавили в список игроков. <a href="https://docs.google.com/forms/d/e/1FAIpQLScvYH8osK5IaB7Vilf76vcYU4K77hvNBY8rPih9lc-idxkvJg/viewform">Ссылка</a></p>
+						</div>
+						
+						<div class="block startgame">
+							<h1 class="startgame__step">#3</h1>
+							<img src="templates/default/assets/images/startgame/3.png" alt="" class="startgame__img">
+							<p class="startgame__text">Ознакомьтесь с правилами, ведь Вы обязаны их соблюдать! <a href="https://docs.google.com/document/d/1-iOmTCcSNUyfM19MmTHZ7KQzRhz-vY4O-wQqXIw7M9I/view">Ссылка</a></p>
+						</div>
+						
+						<div class="block startgame">
+							<h1 class="startgame__step">#4</h1>
+							<img src="templates/default/assets/images/startgame/4.png" alt="" class="startgame__img">
+							<p class="startgame__text">Наслаждайтесь игрок!</p>
+							<button class="btn-transparent icon__copy" id="copy-ip-1">Наш IP</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!-- ================ Footer ================ -->
+<footer class="footer" id="footer">
+	<div class="container-xl footer__container">
+		<div class="footer__left">
+
+			<div class="footer__div-text">
+				<p class="footer__text semibold">@LazyLand 2023</p>
+			</div>
+		</div>
+
+		<div class="footer__right">
+			<a href="#" class="footer__text flex primary-hover semibold icon__policy">Политика конфиденциальности</a>
+			<div class="footer__div-text flex">
+				<a href="#" target="_blank" class="footer__text footer__social">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M15.8769 21.1818C9.16791 21.1818 5.34127 16.5407 5.18182 8.81812H8.54245C8.65284 14.4863 11.1303 16.8873 13.0927 17.3823V8.81812H16.2572V13.7066C18.1951 13.4962 20.2309 11.2686 20.9177 8.81812H24.0822C23.5548 11.8379 21.3471 14.0655 19.7771 14.9814C21.3471 15.7239 23.8615 17.667 24.8182 21.1818H21.3348C20.5866 18.8303 18.7225 17.011 16.2572 16.7635V21.1818H15.8769Z" fill="white" fill-opacity="0.5"/>
+					</svg>
+				</a>
+				<a href="https://discord.com/invite/xrGna3M6s9" target="_blank" class="footer__text footer__social">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_451_101)">
+						<path d="M22.8123 7.97832C21.3539 7.28862 19.7945 6.78737 18.1642 6.50195C17.964 6.86785 17.7301 7.35998 17.5688 7.75147C15.8357 7.48803 14.1186 7.48803 12.4174 7.75147C12.2561 7.35998 12.0169 6.86785 11.8149 6.50195C10.1828 6.78737 8.62164 7.29046 7.16322 7.98197C4.22159 12.475 3.42416 16.8565 3.82288 21.1757C5.77392 22.6484 7.66472 23.543 9.52361 24.1284C9.98258 23.49 10.3919 22.8113 10.7446 22.096C10.0729 21.838 9.42969 21.5197 8.82189 21.1501C8.98314 21.0294 9.14086 20.9032 9.29324 20.7733C13.0004 22.5259 17.0283 22.5259 20.6912 20.7733C20.8454 20.9032 21.003 21.0294 21.1625 21.1501C20.5529 21.5215 19.9079 21.8398 19.2363 22.0978C19.589 22.8113 19.9965 23.4918 20.4573 24.1303C22.3179 23.5449 24.2105 22.6503 26.1615 21.1757C26.6294 16.1686 25.3623 11.8274 22.8123 7.97832ZM11.2496 18.5194C10.1368 18.5194 9.22412 17.4693 9.22412 16.1906C9.22412 14.9118 10.1173 13.8599 11.2496 13.8599C12.382 13.8599 13.2946 14.91 13.2751 16.1906C13.2768 17.4693 12.382 18.5194 11.2496 18.5194ZM18.7348 18.5194C17.622 18.5194 16.7093 17.4693 16.7093 16.1906C16.7093 14.9118 17.6024 13.8599 18.7348 13.8599C19.8672 13.8599 20.7798 14.91 20.7603 16.1906C20.7603 17.4693 19.8672 18.5194 18.7348 18.5194Z" fill="white" fill-opacity="0.5"/>
+						</g>
+						<defs>
+						<clipPath id="clip0_451_101">
+						<rect width="22.5455" height="22.5455" fill="white" transform="translate(3.72717 3.72729)"/>
+						</clipPath>
+						</defs>
+					</svg>
+				</a>
+				<a href="#" target="_blank" class="footer__text footer__social">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M25.0801 9.75513C24.9591 9.29286 24.7231 8.87143 24.3956 8.53279C24.0681 8.19416 23.6605 7.95015 23.2134 7.82506C21.5767 7.36353 14.9894 7.36353 14.9894 7.36353C14.9894 7.36353 8.40203 7.37751 6.76534 7.83905C6.31826 7.96414 5.91067 8.20815 5.58317 8.54678C5.25567 8.88541 5.01967 9.30685 4.8987 9.76912C4.40363 12.7761 4.21156 17.3579 4.91222 20.2446C5.0332 20.7069 5.26919 21.1284 5.59669 21.467C5.9242 21.8056 6.33178 22.0496 6.77886 22.1747C8.41555 22.6363 15.0029 22.6363 15.0029 22.6363C15.0029 22.6363 21.5903 22.6363 23.2269 22.1747C23.674 22.0496 24.0816 21.8056 24.4091 21.467C24.7366 21.1284 24.9726 20.7069 25.0936 20.2446C25.6157 17.2335 25.7767 12.6544 25.0801 9.75513Z" fill="white" fill-opacity="0.5"/>
+						<path d="M12.8929 18.2728L18.3576 15L12.8929 11.7273V18.2728Z" fill="#2C2B2B"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+	
+
+	<!-- ================ Social modal ================ -->
+<div class="modal fade" id="social" aria-hidden="true" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-dialog_social">
+		<div class="modal__window modal__social">
+			<button class="modal__close" data-bs-dismiss="modal"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L8.5 8.5M16 16L8.5 8.5M8.5 8.5L16 1M8.5 8.5L1 16" stroke="white" stroke-opacity="0.5" stroke-linecap="round"/></svg></button>
+			<h3 class="modal__title">Социальные сети</h3>
+			<div class="modal__content social">
+				<a href="#" target="_blank" class="social__link">
+					<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M15.815 0.00658691L17.03 0.00158691H22.97L24.1867 0.00658691L25.71 0.0232536L26.4317 0.0349202L27.1283 0.0532536L27.8 0.0765869L28.4467 0.103254L29.07 0.138254L29.67 0.17992L30.245 0.22992L30.8 0.28492C33.7 0.611587 35.6883 1.31159 37.1883 2.81159C38.6883 4.31159 39.3883 6.29825 39.715 9.19992L39.7717 9.75492L39.82 10.3316L39.8617 10.9316L39.895 11.5533L39.9367 12.5333L39.9567 13.2166L39.9783 14.2899L39.9933 15.8149L40 17.4483L39.9983 22.9699L39.9933 24.1866L39.9767 25.7099L39.965 26.4316L39.9467 27.1283L39.9233 27.7999L39.8967 28.4466L39.8617 29.0699L39.82 29.6699L39.77 30.2449L39.715 30.7999C39.3883 33.6999 38.6883 35.6883 37.1883 37.1883C35.6883 38.6883 33.7017 39.3883 30.8 39.7149L30.245 39.7716L29.6683 39.8199L29.0683 39.8616L28.4467 39.8949L27.4667 39.9366L26.7833 39.9566L25.71 39.9783L24.185 39.9933L22.5517 39.9999L17.03 39.9983L15.8133 39.9933L14.29 39.9766L13.5683 39.9649L12.8717 39.9466L12.2 39.9233L11.5533 39.8966L10.93 39.8616L10.33 39.8199L9.755 39.7699L9.2 39.7149C6.3 39.3883 4.31167 38.6883 2.81167 37.1883C1.31167 35.6883 0.611667 33.7016 0.285 30.7999L0.228333 30.2449L0.18 29.6683L0.138333 29.0683L0.105 28.4466L0.0633333 27.4666L0.0433333 26.7833L0.0216667 25.7099L0.00666667 24.1849L0 22.5516L0.00166667 17.0299L0.00666667 15.8133L0.0233333 14.2899L0.035 13.5683L0.0533333 12.8716L0.0766667 12.1999L0.103333 11.5533L0.138333 10.9299L0.18 10.3299L0.23 9.75492L0.285 9.19992C0.611667 6.29992 1.31167 4.31159 2.81167 2.81159C4.31167 1.31159 6.29833 0.611587 9.2 0.28492L9.755 0.228254L10.3317 0.17992L10.9317 0.138254L11.5533 0.10492L12.5333 0.0632536L13.2167 0.0432536L14.29 0.0215869L15.815 0.00658691V0.00658691ZM11.3167 12.1666H6.75C6.96667 22.5666 12.1667 28.8166 21.2833 28.8166H21.8V22.8666C25.15 23.1999 27.6833 25.6499 28.7 28.8166H33.4333C32.1333 24.0833 28.7167 21.4666 26.5833 20.4666C28.7167 19.2333 31.7167 16.2333 32.4333 12.1666H28.1333C27.2 15.4666 24.4333 18.4666 21.8 18.7499V12.1666H17.5V23.6999C14.8333 23.0333 11.4667 19.7999 11.3167 12.1666V12.1666Z"/>
+					</svg>
+					<p>Группа ВКонтакте</p>
+				</a>
+				<a href="https://discord.com/invite/xrGna3M6s9" target="_blank" class="social__link">
+					<svg width="38" height="28" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M31.7832 2.36476C31.773 2.34496 31.756 2.32946 31.7354 2.32101C29.3527 1.2278 26.8383 0.448252 24.2551 0.00188159C24.2316 -0.0024816 24.2073 0.000666057 24.1858 0.0108769C24.1642 0.0210877 24.1464 0.0378418 24.1349 0.0587566C23.7925 0.680187 23.4817 1.3185 23.2036 1.97126C20.419 1.54856 17.5866 1.54856 14.802 1.97126C14.5221 1.31684 14.2063 0.678371 13.8561 0.0587566C13.844 0.0382964 13.8261 0.0219281 13.8047 0.0117836C13.7833 0.00163909 13.7592 -0.00181143 13.7358 0.00188159C11.1523 0.447315 8.6377 1.22692 6.25531 2.32107C6.23491 2.32972 6.2177 2.34448 6.20606 2.36332C1.44174 9.4782 0.136616 16.4181 0.776866 23.2721C0.778668 23.2889 0.783828 23.3052 0.792042 23.32C0.800256 23.3347 0.811355 23.3477 0.824679 23.3581C3.59889 25.4122 6.70189 26.9801 10.0012 27.9949C10.0245 28.0019 10.0493 28.0015 10.0723 27.994C10.0954 27.9864 10.1156 27.972 10.1302 27.9526C10.8388 26.9884 11.4667 25.9674 12.0075 24.9C12.0149 24.8854 12.0192 24.8693 12.0199 24.8529C12.0207 24.8365 12.018 24.8201 12.012 24.8048C12.006 24.7895 11.9968 24.7757 11.985 24.7642C11.9733 24.7528 11.9592 24.7439 11.9438 24.7383C10.9537 24.3594 9.99507 23.9027 9.07706 23.3724C9.06038 23.3626 9.04637 23.3489 9.03628 23.3324C9.02618 23.3159 9.0203 23.2972 9.01915 23.2778C9.01801 23.2585 9.02164 23.2392 9.02972 23.2217C9.0378 23.2041 9.05009 23.1888 9.06549 23.1771C9.25867 23.0328 9.44849 22.8841 9.63481 22.731C9.65115 22.7176 9.67092 22.7089 9.6919 22.7061C9.71288 22.7033 9.73424 22.7064 9.75356 22.715C15.7679 25.4598 22.2792 25.4598 28.2223 22.715C28.2417 22.7058 28.2633 22.7023 28.2845 22.7049C28.3058 22.7074 28.3259 22.716 28.3426 22.7296C28.5291 22.8834 28.7194 23.0326 28.9133 23.1771C28.9288 23.1887 28.9412 23.2039 28.9494 23.2214C28.9576 23.2389 28.9614 23.2581 28.9604 23.2775C28.9594 23.2968 28.9536 23.3155 28.9437 23.3321C28.9337 23.3487 28.9198 23.3625 28.9032 23.3724C27.9873 23.9072 27.0278 24.3636 26.0351 24.7368C26.0196 24.7427 26.0056 24.7517 25.994 24.7634C25.9823 24.775 25.9732 24.789 25.9673 24.8044C25.9614 24.8198 25.9588 24.8363 25.9597 24.8528C25.9606 24.8693 25.965 24.8853 25.9726 24.9C26.5224 25.9615 27.1494 26.9812 27.8484 27.9509C27.8626 27.9708 27.8827 27.9858 27.9058 27.9936C27.929 28.0015 27.954 28.0018 27.9774 27.9947C31.2826 26.9833 34.3911 25.4153 37.1688 23.3581C37.1823 23.3482 37.1935 23.3356 37.2018 23.321C37.21 23.3064 37.2151 23.2902 37.2166 23.2736C37.9831 15.3496 35.9333 8.46657 31.7832 2.36476V2.36476ZM12.9057 19.0988C11.0949 19.0988 9.60293 17.4371 9.60293 15.3963C9.60293 13.3556 11.066 11.6938 12.9057 11.6938C14.7597 11.6938 16.2373 13.37 16.2084 15.3962C16.2084 17.4371 14.7452 19.0988 12.9057 19.0988V19.0988ZM25.1169 19.0988C23.3062 19.0988 21.8142 17.4371 21.8142 15.3963C21.8142 13.3556 23.2773 11.6938 25.1169 11.6938C26.9711 11.6938 28.4486 13.37 28.4197 15.3962C28.4197 17.4371 26.9711 19.0988 25.1169 19.0988Z"/>
+					</svg>
+					<p>Сервер Discord</p>
+				</a>
+				<a href="#" target="_blank" class="social__link">
+					<svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M39.1667 4.84498C38.9402 4.03704 38.499 3.30556 37.8901 2.72832C37.2639 2.13332 36.4964 1.70771 35.6601 1.49165C32.5301 0.666651 19.9901 0.666651 19.9901 0.666651C14.7623 0.607172 9.53577 0.868775 4.34005 1.44998C3.5037 1.68201 2.73766 2.11713 2.11005 2.71665C1.49339 3.30998 1.04672 4.04165 0.813385 4.84332C0.252874 7.86289 -0.0194612 10.9289 5.20763e-05 14C-0.0199479 17.0683 0.251719 20.1333 0.813385 23.1567C1.04172 23.955 1.48672 24.6833 2.10505 25.2717C2.72339 25.86 3.49339 26.285 4.34005 26.51C7.51172 27.3333 19.9901 27.3333 19.9901 27.3333C25.2245 27.3929 30.4577 27.1313 35.6601 26.55C36.4964 26.3339 37.2639 25.9083 37.8901 25.3133C38.4988 24.7362 38.9395 24.0046 39.1651 23.1967C39.7402 20.1782 40.0199 17.111 40.0001 14.0383C40.0433 10.9527 39.764 7.87092 39.1667 4.84332V4.84498ZM16.0034 19.7067V8.29498L26.4367 14.0017L16.0034 19.7067Z"/>
+					</svg>
+					<p>YouTube-канал</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'agemine';
+	src: url('../fonts/icons/agemine.eot%3F51vhaj');
+	src: url('../fonts/icons/agemine.eot%3F51vhaj') format('embedded-opentype'),
+		url('../fonts/icons/agemine.ttf%3F51vhaj') format('truetype'),
+		url('../fonts/icons/agemine.woff%3F51vhaj') format('woff'),
+		url('../fonts/icons/agemine.svg%3F51vhaj') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+[class^="icon__"]:before, [class*=" icon__"]:before {
+	font-family: 'agemine' !important;
+	transition: 0s all !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon__book:before {
+  content: "\e900";
+}
+.icon__card:before {
+  content: "\e901";
+}
+.icon__card-big:before {
+  content: "\e902";
+}
+.icon__code:before {
+  content: "\e903";
+}
+.icon__copy:before {
+  content: "\e904";
+}
+.icon__home:before {
+  content: "\e905";
+}
+.icon__other:before {
+  content: "\e906";
+}
+.icon__policy:before {
+  content: "\e907";
+}
+.icon__profile:before {
+  content: "\e908";
+}
+.icon__shop:before {
+  content: "\e909";
+}
+.icon__square:before {
+  content: "\e90a";
+}
+.icon__star:before {
+  content: "\e90b";
+}
