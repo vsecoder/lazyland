@@ -105,7 +105,7 @@ $(function(){
 								<p class="nav__text">Карта</p>
 							</a>
 							
-							<a href="#" class="nav__link">
+							<a data-bs-toggle="modal" href="#shop" class="nav__link">
 								<span class="icon__shop nav__icon"></span>
 								<p class="nav__text">Магазин</p>
 							</a>
@@ -139,7 +139,7 @@ $(function(){
 		</div>
 
 		<div class="container-xl main__container main__container-other z-index-1">
-			<a href="#" class="block block_big bg-full w-50 small-padding" style="min-height: 313px;">
+			<a data-bs-toggle="modal" href="#shop" class="block block_big bg-full w-50 small-padding" style="min-height: 313px;">
 				<div class="block__content">
 					<h2 class="block__title">Магазин</h2>
 				</div>
@@ -334,6 +334,60 @@ $(function(){
 		</div>
 	</div>
 </div>
-
+<!-- ================ Shop modal ================ -->
+<div class="modal fade" id="shop" aria-hidden="true" tabindex="-2">
+	<div class="modal-dialog modal-dialog-centered modal-dialog_social">
+		<div class="modal__window modal__social">
+			<button class="modal__close" data-bs-dismiss="modal"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L8.5 8.5M16 16L8.5 8.5M8.5 8.5L16 1M8.5 8.5L1 16" stroke="white" stroke-opacity="0.5" stroke-linecap="round"/></svg></button>
+			<script src="https://api.trademc.org/trademcapi.js"></script>
+			<div id="buyform"></div>
+			<script>TrademcAPI.GetBuyForm({"Shop":"196689","Title":"Купить донат","Nickname":"Введите ваш никнейм","Item":"Выберите товар","Coupon":"Введите купон, если есть","Button":"Продолжить","Success_URL":"https://lazyland.games/#success","Pending_URL":"https://lazyland.games/#wait","Fail_URL":"https://lazyland.games/#error","PastPlaceID":"buyform"});</script>
+		</div>
+	</div>
+</div>
+<!-- ================ error modal ================ -->
+<div class="modal fade" id="error" aria-hidden="true" tabindex="-2">
+	<div class="modal-dialog modal-dialog-centered modal-dialog_social">
+		<div class="modal__window modal__social">
+			<button class="modal__close" data-bs-dismiss="modal"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L8.5 8.5M16 16L8.5 8.5M8.5 8.5L16 1M8.5 8.5L1 16" stroke="white" stroke-opacity="0.5" stroke-linecap="round"/></svg></button>
+			<h3 class="modal__title">Ошибка оплаты!</h3>
+		</div>
+	</div>
+</div> 
+<!-- ================ success modal ================ -->
+<div class="modal fade" id="success" aria-hidden="true" tabindex="-2">
+	<div class="modal-dialog modal-dialog-centered modal-dialog_social">
+		<div class="modal__window modal__social">
+			<button class="modal__close" data-bs-dismiss="modal"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L8.5 8.5M16 16L8.5 8.5M8.5 8.5L16 1M8.5 8.5L1 16" stroke="white" stroke-opacity="0.5" stroke-linecap="round"/></svg></button>
+			<h3 class="modal__title"></h3>Вы удачно купили донат! Если вы его не получили, напишите администрации.</h3>
+		</div>
+	</div>
+</div>
+<!-- ================ wait modal ================ -->
+<div class="modal fade" id="wait" aria-hidden="true" tabindex="-2">
+	<div class="modal-dialog modal-dialog-centered modal-dialog_social">
+		<div class="modal__window modal__social">
+			<button class="modal__close" data-bs-dismiss="modal"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L8.5 8.5M16 16L8.5 8.5M8.5 8.5L16 1M8.5 8.5L1 16" stroke="white" stroke-opacity="0.5" stroke-linecap="round"/></svg></button>
+			<h3 class="modal__title">Ожидайте получения, в случае чего пишите администрации.</h3>
+		</div>
+	</div>
+</div>
+<script>
+	let error = "#error";
+	let success = "#success";
+	let wait = "#wait";
+	let url = window.location.href;
+	window.onload = (event) => {
+		if (url.indexOf("error") != -1) {
+			$(error).modal('show')
+		}
+		if (url.indexOf("success") != -1) {
+			$(success).modal('show');
+		}
+		if (url.indexOf("wait") != -1) {
+			$(wait).modal('show');
+		}
+	}
+</script>
 </body>
 </html>
